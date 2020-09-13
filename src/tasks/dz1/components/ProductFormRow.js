@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Table, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import ValidatedInput from './ValidatedInput';
 
@@ -57,25 +58,25 @@ export default class ProductFormRow extends Component {
     }
     render() {
         const { title, type, price, quantity } = this.state;
-        const disabled = this.isDisabled()
+        const disabled = this.isDisabled();
         return (
-            <tr>
-                <td>
-                    <ValidatedInput validate={requiredValidator} type="text" name='title' value={title} onChange={this.onChangeField}/>
-                </td>
-                <td>
-                    <ValidatedInput validate={requiredValidator} type="text" name='type' value={type} onChange={this.onChangeField}/>
-                </td>
-                <td>
-                    <ValidatedInput validate={requiredValidator} type="text" name='price' value={price} onChange={this.onChangeField}/>
-                </td>
-                <td>
-                    <ValidatedInput validate={requiredValidator} type="text" name='quantity' value={quantity} onChange={this.onChangeField}/>
-                </td>
-                <td>
-                    <button disabled={disabled} onClick={this.submitProductForm}>Submit</button>
-                </td>
-            </tr>
+            <Table.Row>
+                <Table.Cell>
+                    <ValidatedInput placeholder='Name' validate={requiredValidator} type="text" name='title' value={title} onChange={this.onChangeField}/>
+                </Table.Cell>
+                <Table.Cell>
+                    <ValidatedInput placeholder='Type' validate={requiredValidator} type="text" name='type' value={type} onChange={this.onChangeField}/>
+                </Table.Cell>
+                <Table.Cell>
+                    <ValidatedInput placeholder='Price' validate={requiredValidator} type="text" name='price' value={price} onChange={this.onChangeField}/>
+                </Table.Cell>
+                <Table.Cell>
+                    <ValidatedInput placeholder='Quantity' validate={requiredValidator} type="text" name='quantity' value={quantity} onChange={this.onChangeField}/>
+                </Table.Cell>
+                <Table.Cell>
+                    <Button disabled={disabled} onClick={this.submitProductForm}>Submit</Button>
+                </Table.Cell>
+            </Table.Row>
         )
     }
 }

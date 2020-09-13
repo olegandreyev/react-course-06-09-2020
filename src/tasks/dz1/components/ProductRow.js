@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Table, Button, Icon } from 'semantic-ui-react'
 import ProductFormRow from './ProductFormRow';
 
 export default class ProductRow extends Component {
@@ -9,7 +10,7 @@ export default class ProductRow extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             prevUserId: props.userId
         }
     }
@@ -26,19 +27,19 @@ export default class ProductRow extends Component {
         const { editMode } = this.state;
         if (editMode) return <ProductFormRow onSubmit={this.onEdit} product={product} />
         return (
-            <tr>
-            <td>{product.title}</td>
-            <td>{product.type}</td>
-            <td>{product.price}</td>
-            <td>{product.quantity}</td>
-            <td>
-                <button onClick={() => this.setState({ editMode: true })}>Edit</button>
-                <button onClick={() => onRemoveProduct(product.id)}>Remove</button>
-            </td>
-        </tr>
+          <Table.Row>
+              <Table.Cell>{product.title}</Table.Cell>
+              <Table.Cell>{product.type}</Table.Cell>
+              <Table.Cell>{product.price}</Table.Cell>
+              <Table.Cell>{product.quantity}</Table.Cell>
+              <Table.Cell>
+                  <Icon name='edit' onClick={() => this.setState({ editMode: true })} />
+                  <Icon name='trash'  onClick={() => onRemoveProduct(product.id)} />
+              </Table.Cell>
+          </Table.Row>
         )
     }
-    
+
     static propTypes = {
         onRemoveProduct: PropTypes.func.isRequired,
         onEditProduct: PropTypes.func.isRequired,

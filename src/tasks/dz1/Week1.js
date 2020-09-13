@@ -7,7 +7,7 @@ export default class Week1 extends Component {
     state = {
        products: [],
        isFetching: false
-    }
+    };
 
     componentDidMount() {
         this.setState({ isFetching: true });

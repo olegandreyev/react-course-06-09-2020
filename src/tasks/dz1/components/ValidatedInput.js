@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Input } from 'semantic-ui-react';
 
 export default class ValidatedInput extends Component {
 
@@ -30,10 +31,12 @@ export default class ValidatedInput extends Component {
         const { validate, ...rest } = this.props;
         const { error, touched } = this.state;
         return (
-            <div className='validated-input'>
-                <input {...rest} onBlur={this.touchInput} />
-                {error && touched && <div className='error'>{error}</div> }
-            </div>
+          <Input
+            {...rest}
+            control={Input}
+            onBlur={this.touchInput}
+            error={touched && error}
+          />
         )
     }
 }
