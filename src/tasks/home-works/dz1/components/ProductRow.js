@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Table, Button, Icon } from 'semantic-ui-react'
+import { Table, Icon } from 'semantic-ui-react'
 import ProductFormRow from './ProductFormRow';
+import product from '../prop-types/product';
 
 export default class ProductRow extends Component {
     state = {
@@ -40,3 +41,8 @@ export default class ProductRow extends Component {
         )
     }
 }
+
+ProductRow.propTypes = {
+  product: product.isRequired,
+  onRemoveProduct: PropTypes.func.isRequired,
+};

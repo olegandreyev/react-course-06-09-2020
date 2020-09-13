@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Table, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import ValidatedInput from './ValidatedInput';
+import product from "../prop-types/product";
 
 const requiredValidator = value => !value ? 'Required!' : '';
 
@@ -23,7 +24,7 @@ export default class ProductFormRow extends Component {
         }
     }
     onChangeField = e => {
-        const { name , value} = e.target
+        const { name , value} = e.target;
         this.setState({ [name]: value })
     }
     submitProductForm = () => {
@@ -40,10 +41,10 @@ export default class ProductFormRow extends Component {
     }
     isDisabled() {
         const { title, type, price, quantity } = this.state;
-        return requiredValidator(title)
+        return !!(requiredValidator(title)
         && requiredValidator(type)
         && requiredValidator(price)
-        && requiredValidator(quantity)
+        && requiredValidator(quantity))
     }
     render() {
         const { title, type, price, quantity } = this.state;
@@ -70,3 +71,12 @@ export default class ProductFormRow extends Component {
     }
 }
 
+
+ProductFormRow.propTypes = {
+    product,
+    onSubmit: PropTypes.func.isRequired,
+};
+
+ProductFormRow.defaultProps = {
+    product: {},
+};

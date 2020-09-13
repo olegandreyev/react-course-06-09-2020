@@ -33,7 +33,6 @@ export default class ValidatedInput extends Component {
         return (
           <Input
             {...otherProps}
-            control={Input}
             onBlur={this.touchInput}
             error={touched && error}
           />
