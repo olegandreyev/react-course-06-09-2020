@@ -39,16 +39,4 @@ export default class ProductRow extends Component {
           </Table.Row>
         )
     }
-
-    static propTypes = {
-        onRemoveProduct: PropTypes.func.isRequired,
-        onEditProduct: PropTypes.func.isRequired,
-        product: PropTypes.shape({
-            id: PropTypes.string,
-            title: PropTypes.string,
-            price: PropTypes.string,
-            quantity: PropTypes.string,
-            type: PropTypes.string
-        }).isRequired
-    }
 }

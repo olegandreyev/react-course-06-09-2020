@@ -37,10 +37,3 @@ export default function ProductList({
     )
 }
 
-
-ProductList.propTypes = {
-    products: PropTypes.array.isRequired,
-    onRemoveProduct: PropTypes.func.isRequired,
-    onAddProduct: PropTypes.func.isRequired,
-    onEditProduct: PropTypes.func.isRequired
-}

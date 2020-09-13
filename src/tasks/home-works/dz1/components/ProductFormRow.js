@@ -7,17 +7,6 @@ const requiredValidator = value => !value ? 'Required!' : '';
 
 export default class ProductFormRow extends Component {
 
-    static propTypes = {
-        onSubmit: PropTypes.func.isRequired,
-        product: PropTypes.shape({
-            id: PropTypes.string,
-            title: PropTypes.string,
-            price: PropTypes.string,
-            quantity: PropTypes.string,
-            type: PropTypes.string
-        }).isRequired
-    }
-
     static defaultProps = {
         product: {}
     }
