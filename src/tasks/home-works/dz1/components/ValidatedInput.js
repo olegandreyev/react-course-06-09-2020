@@ -28,11 +28,11 @@ export default class ValidatedInput extends Component {
     }
 
     render() {
-        const { validate, ...rest } = this.props;
+        const { validate, ...otherProps } = this.props;
         const { error, touched } = this.state;
         return (
           <Input
-            {...rest}
+            {...otherProps}
             control={Input}
             onBlur={this.touchInput}
             error={touched && error}

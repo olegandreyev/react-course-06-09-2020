@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Loader } from 'semantic-ui-react';
 import ProductList from './components/ProductList'
 import productsApi from './products-api';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -13,7 +14,9 @@ export default class Week1 extends Component {
         this.setState({ isFetching: true });
         productsApi
             .fetchProducts()
-            .then(products => this.setState({ products, isFetching: false }))
+            .then(products => {
+                this.setState({ products, isFetching: false })
+            })
     }
 
     removeProduct = id => {
@@ -22,6 +25,7 @@ export default class Week1 extends Component {
             products: products.filter(product => product.id !== id)
         })
     };
+
     addProduct = newProduct => {
         const { products } = this.state;
         this.setState({
@@ -44,10 +48,10 @@ export default class Week1 extends Component {
 
     render() {
         const { isFetching } = this.state;
-        if (isFetching) return <div className='loader'></div>
         return (
             <div className="week1">
                 <ErrorBoundary resolve={() => alert('Help me')}>
+                    <Loader size='small' active={isFetching} />
                     <ProductList
                         onAddProduct={this.addProduct}
                         onEditProduct={this.editProduct}
