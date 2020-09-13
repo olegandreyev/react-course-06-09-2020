@@ -2,6 +2,11 @@ h1 {
   color: red;
 }
 
-.composition-example {
-  padding: 24px;
+.composition-example, .blog {
+  padding: 24px !important;
+}
+
+.author-column .ui.card{
+  position: fixed !important;
+  top: 24px !important;
 }
