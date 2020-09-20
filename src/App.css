@@ -10,3 +10,7 @@ h1 {
   position: fixed !important;
   top: 24px !important;
 }
+
+.full-with-img{
+  width: 100%;
+}
