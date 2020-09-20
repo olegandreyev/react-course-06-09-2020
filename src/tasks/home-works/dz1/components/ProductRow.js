@@ -9,14 +9,6 @@ export default class ProductRow extends Component {
         editMode: false
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            prevUserId: props.userId
-        }
-    }
-
-
     onEdit = updatedProduct => {
         this.props.onEditProduct(updatedProduct)
         this.setState({ editMode: false });
