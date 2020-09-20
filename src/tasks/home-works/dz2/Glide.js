@@ -7,7 +7,7 @@ export default class Glide extends Component {
 
     constructor(props) {
         super(props);
-        this.slider = React.createRef();
+        this.slider = React.createRef(); // this.slider.current === null
         this.glider = null;
     }
 

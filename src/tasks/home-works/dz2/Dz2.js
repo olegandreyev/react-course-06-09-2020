@@ -8,7 +8,8 @@ class Dz2 extends Component {
   state = {
     autoplay: false,
     type: 'carousel',
-    perView: 3
+    perView: 3,
+    visible: true
   };
 
   render() {
@@ -41,11 +42,19 @@ class Dz2 extends Component {
             />
           </Form.Field>
         </Form>
-        <Glide options={{ autoplay: autoplay ? 2000 : false, type, perView }}>
-          <img className="full-with-img" src="https://i.morioh.com/200613/cbd162d1.jpg" alt=""/>
-          <img className="full-with-img" src="https://www.valuecoders.com/blog/wp-content/uploads/2016/08/top-20-angularjs-developer-tools.jpg" alt=""/>
-          <img className="full-with-img" src="https://i1.wp.com/storage.googleapis.com/blog-images-backup/1*wFL3csJ96lQpY0IVT9SE3w.jpeg?ssl=1" alt=""/>
-        </Glide>
+        {
+          this.state.visible &&
+          <Glide options={{autoplay: autoplay ? 2000 : false, type, perView}}>
+
+            <img className="full-with-img" src="https://i.morioh.com/200613/cbd162d1.jpg" alt=""/>
+            <img className="full-with-img"
+                 src="https://www.valuecoders.com/blog/wp-content/uploads/2016/08/top-20-angularjs-developer-tools.jpg"
+                 alt=""/>
+            <img className="full-with-img"
+                 src="https://i1.wp.com/storage.googleapis.com/blog-images-backup/1*wFL3csJ96lQpY0IVT9SE3w.jpeg?ssl=1"
+                 alt=""/>
+          </Glide>
+        }
       </Container>
     );
   }

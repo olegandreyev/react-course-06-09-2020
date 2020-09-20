@@ -14,3 +14,7 @@ h1 {
 .full-with-img{
   width: 100%;
 }
+
+.page {
+  padding-top: 24px;
+}
