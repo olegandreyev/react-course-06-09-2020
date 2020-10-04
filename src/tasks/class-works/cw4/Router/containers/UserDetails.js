@@ -24,7 +24,7 @@ function UserDetails() {
   if (userDetails === null) return <Loader size='small' active />;
 
   if (!userDetails.id) {
-    return <Redirect to='/404'/>
+    return <Redirect to='/'/>
   }
 
   return (

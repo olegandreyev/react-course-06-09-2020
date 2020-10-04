@@ -4,7 +4,7 @@ import {
   HashRouter as Hash,
   Switch,
   Route,
-  Link
+  Link, NavLink
 } from "react-router-dom";
 import Users from "./containers/Users";
 import Page404 from "./containers/404";
@@ -17,17 +17,20 @@ function Blog() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink exact activeClassName='active' to="/">Home</NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink exact activeClassName='active' to="/about">About</NavLink>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <NavLink activeClassName='active' to="/users">Users</NavLink>
             </li>
           </ul>
         </nav>
         <Switch>
+          <Route path="/" exact>
+            Home
+          </Route>
           <Route path="/about" exact>
               Hello About
           </Route>
@@ -36,9 +39,6 @@ function Blog() {
           </Route>
           <Route path="/people/:userId" exact>
             <UserDetails />
-          </Route>
-          <Route path="/" exact>
-            Home
           </Route>
           <Route path='*'>
             <Page404 />
