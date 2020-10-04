@@ -6,6 +6,8 @@ import { Container } from "semantic-ui-react";
 import { ExampleUNoUseState, ExampleUseState } from "./tasks/class-works/cw3/ExampleUseState";
 import ThemeContext from "./tasks/class-works/cw3/context/ThemeContext";
 import MouseTracker from "./tasks/class-works/cw3/CustomHooks/MouseTracker";
+import UseCallbackExample from "./tasks/class-works/cw4/useCallback/Example";
+import BlogV2 from "./tasks/class-works/cw4/Router/Blog";
 
 
 
@@ -23,10 +25,7 @@ class App extends Component {
     return (
       <ThemeContext.Provider value={theme}>
         <Container className='page'>
-          <MouseTracker />
-          <ExampleUseState initialCount={0} />
-          <ExampleUNoUseState />
-          <Button onClick={() => this.setState({ theme: theme === 'light' ? 'dark' : 'light' })}>Switch Theme ({theme})</Button>
+          <BlogV2 />
         </Container>
       </ThemeContext.Provider>
     )
