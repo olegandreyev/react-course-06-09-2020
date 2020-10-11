@@ -1,10 +1,8 @@
-import { createStore, combineReducers } from 'redux';
-import counterReducer from './reducers/counter';
+import { createStore } from 'redux';
+import rootReducer from './reducers';
 
 export default () => {
-  return createStore(combineReducers({
-    counter: counterReducer
-  }),
+  return createStore(rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 };
