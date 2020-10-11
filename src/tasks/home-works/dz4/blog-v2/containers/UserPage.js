@@ -1,9 +1,10 @@
 import React from 'react'
 import { useParams, Switch, Route , useRouteMatch, Link} from 'react-router-dom'
-import { Card, Image, Icon, Container, Dimmer, Loader, Header, List, Grid } from 'semantic-ui-react'
+import { Card, Image, Icon, Container, Header, List, Grid } from 'semantic-ui-react'
 import useData from '../hooks/useData';
 import AlbumPage from './AlbumPage';
 import NotFoundPage from './404';
+import DimmerLoader from "../components/DimmerLoader";
 
 export default function UserPage() {
     const { userId } = useParams();
@@ -14,7 +15,7 @@ export default function UserPage() {
 
     return (
         <Container className='page'>
-            <Dimmer active={isFetching || !user} inverted><Loader /></Dimmer>
+            <DimmerLoader active={isFetching} />
             {user &&
             <Grid>
                 <Grid.Column width={6}>

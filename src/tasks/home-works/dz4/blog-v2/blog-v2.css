@@ -11,8 +11,8 @@
   .page .ui.items {
       margin: 0;
   }
-  
-  .fade-enter,
+
+.fade-enter,
 .fade-exit {
   transition: opacity 250ms ease-out;
 }

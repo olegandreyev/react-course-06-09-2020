@@ -1,14 +1,15 @@
 import React from 'react'
 import useData from '../hooks/useData'
-import { Dimmer, Loader, Grid, Card, Image, Container } from 'semantic-ui-react';
+import { Grid, Card, Image, Container } from 'semantic-ui-react';
 import { Link,  } from 'react-router-dom'
+import DimmerLoader from "../components/DimmerLoader";
 
 export default function UsersPage() {
     const [users, isFetching] = useData('/users', []);
 
     return (
         <Container className='page'>
-         <Dimmer active={isFetching} inverted><Loader /></Dimmer>
+        <DimmerLoader active={isFetching} />
         <Grid className='users' columns={4}>
         {users.map(user => (
             <Grid.Column>

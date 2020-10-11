@@ -1,15 +1,14 @@
 import React from 'react'
-import {  Container, Item, Loader, Dimmer} from 'semantic-ui-react'
+import {  Container, Item } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import useData from '../hooks/useData'
+import DimmerLoader from "../components/DimmerLoader";
 
 export default function AlbumsPage() {
     const [albums, isFetching] = useData('/albums', []);
     return (
         <Container className='page'>
-            <Dimmer active={isFetching} inverted>
-                <Loader></Loader>
-            </Dimmer>
+          <DimmerLoader active={isFetching} />
             <Item.Group className='posts'>
                 {albums.map(album =>(
                     <Item>

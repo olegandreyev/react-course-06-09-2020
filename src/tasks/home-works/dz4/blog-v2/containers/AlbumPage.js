@@ -1,8 +1,9 @@
 import React from 'react'
 import { useParams, Redirect } from 'react-router-dom'
-import { Dimmer, Loader, Container, Image, Header } from 'semantic-ui-react'
+import { Container, Image, Header } from 'semantic-ui-react'
 import useData from '../hooks/useData';
 import Glide from "../../../dz2/Glide";
+import DimmerLoader from "../components/DimmerLoader";
 
 export default function AlbumPage() {
     const { userId, albumId } = useParams();
@@ -15,7 +16,7 @@ export default function AlbumPage() {
     }
     return (
         <Container className='page'>
-            <Dimmer inverted active={isFetching}><Loader active></Loader></Dimmer>
+            <DimmerLoader active={isFetching} />
             <Header>{album.title}</Header>
             {photos.length > 0 &&
             <Glide options={{ perView: 3 }} bullets={false}>
