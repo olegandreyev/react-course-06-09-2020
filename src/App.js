@@ -7,7 +7,7 @@ import { ExampleUNoUseState, ExampleUseState } from "./tasks/class-works/cw3/Exa
 import ThemeContext from "./tasks/class-works/cw3/context/ThemeContext";
 import MouseTracker from "./tasks/class-works/cw3/CustomHooks/MouseTracker";
 import UseCallbackExample from "./tasks/class-works/cw4/useCallback/Example";
-import BlogV2 from "./tasks/class-works/cw4/Router/Blog";
+import Blog from "./tasks/home-works/dz4/blog-v2/Blog";
 
 
 
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <ThemeContext.Provider value={theme}>
         <Container className='page'>
-          <BlogV2 />
+          <Blog />
         </Container>
       </ThemeContext.Provider>
     )
