@@ -8,6 +8,7 @@ import ThemeContext from "./tasks/class-works/cw3/context/ThemeContext";
 import MouseTracker from "./tasks/class-works/cw3/CustomHooks/MouseTracker";
 import UseCallbackExample from "./tasks/class-works/cw4/useCallback/Example";
 import Blog from "./tasks/home-works/dz4/blog-v2/Blog";
+import ReduxApp from "./tasks/class-works/cw5/react-redux/ReduxApp";
 
 
 
@@ -25,7 +26,7 @@ class App extends Component {
     return (
       <ThemeContext.Provider value={theme}>
         <Container className='page'>
-          <Blog />
+          <ReduxApp />
         </Container>
       </ThemeContext.Provider>
     )
