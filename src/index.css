@@ -15,3 +15,15 @@ code {
 .active {
   color: red;
 }
+
+.muted {
+  color: #686868;
+}
+.cart-summary-row {
+  text-align: right;
+  padding-top: 20px !important;
+}
+
+.cart-summary-row .button {
+  margin-top: 10px;
+}

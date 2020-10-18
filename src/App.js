@@ -9,6 +9,7 @@ import MouseTracker from "./tasks/class-works/cw3/CustomHooks/MouseTracker";
 import UseCallbackExample from "./tasks/class-works/cw4/useCallback/Example";
 import Blog from "./tasks/home-works/dz4/blog-v2/Blog";
 import ReduxApp from "./tasks/class-works/cw5/react-redux/ReduxApp";
+import DZ5 from './tasks/home-works/dz5/App'
 
 
 
@@ -25,9 +26,7 @@ class App extends Component {
     const { theme } = this.state;
     return (
       <ThemeContext.Provider value={theme}>
-        <Container className='page'>
-          <ReduxApp />
-        </Container>
+        <DZ5 />
       </ThemeContext.Provider>
     )
   }
