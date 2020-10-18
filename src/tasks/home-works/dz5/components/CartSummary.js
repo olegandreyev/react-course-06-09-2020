@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Button, Icon, Label, List } from "semantic-ui-react";
 
 function CartSummary({ cartProducts }) {
 
-  const totalPrice = cartProducts.reduce((sum, product) => {
-    return sum + (product.price * product.count)
-  }, 0);
+  const totalPrice = useMemo(() => {
+    return cartProducts.reduce((sum, product) => {
+      return sum + (product.price * product.count)
+    }, 0);
+  }, [cartProducts]);
 
   return (
     <List.Item className='cart-summary-row'>

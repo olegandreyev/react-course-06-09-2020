@@ -1,8 +1,13 @@
-import { createStore } from 'redux';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import rootReducer from './reducers';
+import { cartLocalStorage } from './middlewares/cartLocalStorage';
 
 export default () => {
-  return createStore(rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
+  return configureStore({
+    reducer: rootReducer,
+    middleware: getDefaultMiddleware().concat([
+      cartLocalStorage
+    ]),
+    devTools: true,
+  })
 };

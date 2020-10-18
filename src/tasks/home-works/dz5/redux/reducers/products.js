@@ -1,31 +1,52 @@
+import { createReducer } from "@reduxjs/toolkit";
+import { FETCH_PRODUCT_ERROR, FETCH_PRODUCT_PENDING, FETCH_PRODUCT_SUCCESS, fetchProducts } from '../actions/products';
 
-const initialState = [
-  {
-    id: '1',
-    title: 'Samsung Galaxy S10',
-    type: 'device',
-    price: 800,
-    quantity: '10',
-    img: 'https://i.citrus.ua/imgcache/size_800/uploads/shop/e/8/e80e6d491b7dcba4895ec62b3c67e061.jpg'
+const initialState = {
+  loading: false,
+  data: [],
+  error: null
+};
+
+const productsReducer = createReducer(initialState, {
+  [fetchProducts.pending]: (state) => {
+    state.loading = true;
+    state.error = null
   },
-  {
-    id: '2',
-    title: 'IPhone X',
-    type: 'device',
-    price: 600,
-    quantity: '10',
-    img: 'https://luxmobile.com.ua/image/cache/catalog/foto/iphonex/03-1000x1340.jpg'
+  [fetchProducts.fulfilled]: (state, action) => {
+    state.data = action.payload;
+    state.loading = false;
   },
-  {
-    id: '3',
-    title: 'Платье',
-    type: 'clothes',
-    price: 120,
-    quantity: '5',
-    img: 'https://krasota-ua.com/image/import_files/fb/fb30e08b3e7d11ea81b6fa163e3f7418_fb30e08c3e7d11ea81b6fa163e3f7418.jpg'
+  [fetchProducts.rejected]: (state, action) => {
+    state.error = action.payload;
+    state.loading = false;
   }
-];
+});
 
-export default (state = initialState, action) => {
-  return state;
+export default productsReducer;
+
+
+
+export function productsReducerLegacy(state = initialState, action) {
+  switch (action.type) {
+    case FETCH_PRODUCT_PENDING:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+    case FETCH_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        data: action.payload,
+        loading: false
+      };
+    case FETCH_PRODUCT_ERROR:
+      return {
+        ...state,
+        data: [],
+        loading: false,
+        error: action.payload
+      };
+    default: return state;
+  }
 }

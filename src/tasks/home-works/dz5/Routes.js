@@ -1,12 +1,18 @@
-import { Container, Header, Icon, Menu } from "semantic-ui-react";
+import { Container, Header, Menu } from "semantic-ui-react";
 import { BrowserRouter as Router, NavLink, Route, Switch } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 import NotFoundPage from "../dz4/blog-v2/containers/404";
 import Products from "./containers/Products";
 import Cart from "./containers/Cart";
 import CartIcon from "./components/CartIcon";
+import { useDispatch } from "react-redux";
+import { fetchProducts } from "./redux/actions/products";
 
 export default function Blog() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
   return (
     <Container>
       <Router>
