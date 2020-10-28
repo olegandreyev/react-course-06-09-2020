@@ -8,7 +8,7 @@ import CartIcon from "./components/CartIcon";
 import { useDispatch } from "react-redux";
 import { fetchProducts } from "./redux/actions/products";
 
-export default function Blog() {
+export default function Routes() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
