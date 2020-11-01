@@ -11,6 +11,7 @@ import Blog from "./tasks/home-works/dz4/blog-v2/Blog";
 import ReduxApp from "./tasks/class-works/cw5/react-redux/ReduxApp";
 import DZ5 from './tasks/home-works/dz5/App'
 import DZ6 from "./tasks/home-works/dz6/GistsApp";
+import CW8 from "./tasks/class-works/cw8/client/GistsApp";
 
 
 
@@ -27,7 +28,7 @@ class App extends Component {
     const { theme } = this.state;
     return (
       <ThemeContext.Provider value={theme}>
-        <DZ6 />
+        <CW8 />
       </ThemeContext.Provider>
     )
   }
